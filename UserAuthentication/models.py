@@ -26,6 +26,8 @@ class UserProfile(AbstractBaseUser):
     email = models.EmailField(verbose_name='邮件地址',max_length=255,unique=True,)
     # date_of_birth = models.DateField()
     name = models.CharField(u'用户名',max_length=32)
+    qq = models.CharField(u'QQ号码',max_length=64,null=True, blank=True)
+    phone = models.BigIntegerField(u'电话号码',null=True, blank=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(u'管理员',default=False)
 
