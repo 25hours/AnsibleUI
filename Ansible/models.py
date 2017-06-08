@@ -11,16 +11,22 @@ class Task(models.Model):
     PlayBook = models.TextField(u'任务脚本')
     Script = models.TextField(u'Shell脚本')
 
+    class Meta:
+        verbose_name = ('任务')
+        verbose_name_plural = ('任务')
+
 class TaskInfo(models.Model):
     class Meta:
         ordering = ['-TaskId']
+        verbose_name = ('任务信息')
+        verbose_name_plural = ('任务信息')
     Status_Choices = (
         ('Success', u'成功'),
         ('Running', u'执行中'),
         ('Failed', u'失败'),
         ('Pending', u'进入队列')
     )
-    TaskId = models.OneToOneField(Task,primary_key=True)
+    TaskId = models.OneToOneField(Task,primary_key=True,verbose_name='任务ID')
     name = models.OneToOneField(UserProfile,verbose_name='任务发起人')
     ExecuteTime = models.DateTimeField(auto_now_add=True)
     Status = models.CharField(u'执行状态',choices=Status_Choices,max_length=32)
