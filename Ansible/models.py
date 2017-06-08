@@ -8,7 +8,7 @@ class Task(models.Model):
     Description = models.TextField(u'任务描述',blank=True,null=True,default='')
     Hosts = models.CharField(u'主机',max_length=1024)
     Command = models.CharField(u'执行命令',max_length=1024)
-    PlayBook = models.TextField(u'任务脚本')
+    PlayBook = models.TextField(u'任务剧本')
     Script = models.TextField(u'Shell脚本')
 
     class Meta:
